@@ -39,7 +39,7 @@ drop.addEventListener("change",() =>
     calrate();
 });
 }
-function calrate()
+async function calrate()
 {
 fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurr.value}`)
 .then(response => response.json())
