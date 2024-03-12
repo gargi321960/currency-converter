@@ -4,8 +4,6 @@ let toCurr = document.querySelector(".to select");
 const but= document.querySelector("button");
 const amount = document.querySelector(".amount input");
 let ms=document.querySelector(".msg");
-fromCurr.value="USD";
-toCurr.value="IND";
 
 let updateExchangeRate = () =>
 {
@@ -40,9 +38,8 @@ drop.addEventListener("change",() =>
     img.src = newSrc;
 });
 }
-let calrate=()=>{
-but.addEventListener("click",(event) =>{
-event.preventDefault();
+function calrate()
+{
 fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurr.value}`)
 .then(response => response.json())
 .then(data => {
@@ -52,12 +49,17 @@ fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurr.value}`)
   console.log(`${amount.value} ${fromCurr.value} equals ${conversionRate * amount.value} ${toCurr.value}`);
 })
 .catch(error => console.error('Error fetching conversion data:', error));
-  });
 }
+
+but.addEventListener("click",(event) =>{
+event.preventDefault();
+calrate();
+});
+
 
 window.addEventListener("load", () => {
     updateExchangeRate();
-    calrate();
     fromCurr.value="USD";
     toCurr.value="INR";
+    calrate();
   });
