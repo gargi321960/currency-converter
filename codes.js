@@ -133,7 +133,6 @@ const countryList = {
     SLL: "SL",
     SOS: "SO",
     SRD: "SR",
-    STD: "ST",
     SVC: "SV",
     SYP: "SY",
     SZL: "SZ",
