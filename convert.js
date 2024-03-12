@@ -36,6 +36,7 @@ drop.addEventListener("change",() =>
     let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`;
     let img = drop.parentElement.querySelector("img");
     img.src = newSrc;
+    calrate();
 });
 }
 function calrate()
